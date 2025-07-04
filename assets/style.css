@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to bottom right, #000, #111);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  font-size: 2.5rem;
+  color: #0ff;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 10px #0ff, 0 0 40px #0ff; }
+  50% { opacity: 0.9; text-shadow: 0 0 20px #0ff, 0 0 60px #0ff; }
+}
+
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #0ff;
+  padding-left: 12px;
+}
+
+/* Shop Viewer */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.shop-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0ff;
+}
+
+.shop-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.rarity {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  color: #aaa;
+}
+
+.price {
+  font-weight: bold;
+  color: #0ff;
+  margin-top: 8px;
+}
+
+/* Stat Tracker */
+#stat-tracker {
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#username, #platform {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0ff;
+}
+
+#stats-output {
+  margin-top: 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.03);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #333;
+}

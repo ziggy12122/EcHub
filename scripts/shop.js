@@ -21,6 +21,6 @@ fetch("https://fortnite-api.com/v2/shop")
     });
   })
   .catch(err => {
-    document.getElementById("item-shop").innerText = "❌ Failed to load shop data.";
+    document.getElementById("item-shop").innerText = "Failed to load shop data.";
     console.error("API Error:", err);
   });

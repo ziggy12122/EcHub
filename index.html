@@ -4,26 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fortnite Pro Pulse Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/fonts.css" />
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
-  <header>🎯 Fortnite Pro Pulse Hub</header>
+  <header>Fortnite Pro Pulse Hub</header>
 
   <section>
-    <h2>🛍️ Featured Item Shop</h2>
+    <h2>Featured Item Shop</h2>
     <div id="item-shop" class="shop-grid">Loading shop...</div>
   </section>
 
   <section id="stat-tracker">
-    <h2>📊 Stat Tracker</h2>
+    <h2>Battle Royale Stat Tracker</h2>
     <input type="text" id="username" placeholder="Enter Epic Username" />
     <select id="platform">
       <option value="pc">PC</option>
       <option value="xbl">Xbox</option>
       <option value="psn">PlayStation</option>
     </select>
-    <br />
     <button onclick="fetchStats()">Track Stats</button>
     <div id="stats-output"></div>
   </section>

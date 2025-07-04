@@ -20,7 +20,7 @@ function fetchStats() {
       `;
     })
     .catch(err => {
-      output.innerHTML = "❌ Failed to load stats. Check username or try again.";
+      output.innerHTML = "Failed to load stats. Check username or try again.";
       console.error(err);
     });
 }

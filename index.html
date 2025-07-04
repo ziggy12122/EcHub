@@ -10,7 +10,7 @@
 <body>
   <header>Fortnite Pro Pulse Hub</header>
 
-  <section>
+  <section id="shop-section">
     <h2>Featured Item Shop</h2>
     <div id="item-shop" class="shop-grid">Loading shop...</div>
   </section>
@@ -24,8 +24,14 @@
       <option value="psn">PlayStation</option>
     </select>
     <button onclick="fetchStats()">Track Stats</button>
-    <div id="stats-output"></div>
+    <button onclick="clearStats()">Clear</button>
   </section>
+
+  <!-- Popup Stat Card -->
+  <div id="popup-card" class="stat-popup hidden">
+    <span class="close-btn" onclick="closePopup()">❌</span>
+    <div id="popup-content"></div>
+  </div>
 
   <script src="./scripts/shop.js"></script>
   <script src="./scripts/stats.js"></script>

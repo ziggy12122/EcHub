@@ -1,8 +1,13 @@
 fetch("https://fortnite-api.com/v2/shop")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error("Shop API failed");
+    return res.json();
+  })
   .then(data => {
-    const items = data.data.featured?.entries || [];
+    const items = data.data?.featured?.entries || [];
     const shopGrid = document.getElementById("item-shop");
+    if (!items.length) throw new Error("No featured items available");
+
     shopGrid.innerHTML = "";
 
     items.forEach(entry => {
@@ -21,6 +26,7 @@ fetch("https://fortnite-api.com/v2/shop")
     });
   })
   .catch(err => {
-    document.getElementById("item-shop").innerText = "Failed to load shop data.";
-    console.error("API Error:", err);
+    const shopGrid = document.getElementById("item-shop");
+    shopGrid.innerHTML = `<p class="error">❌ Failed to load shop data. ${err.message}</p>`;
+    console.error(err);
   });

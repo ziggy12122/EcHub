@@ -1,7 +1,9 @@
+/* Core Styles */
 body {
   margin: 0;
   background-color: #f4f4f4;
   color: #222;
+  font-family: 'Inter', sans-serif;
 }
 
 header {
@@ -18,12 +20,7 @@ section {
   border-bottom: 1px solid #ddd;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #444;
-}
-
+/* Buttons */
 button {
   background: #222;
   color: #fff;
@@ -39,6 +36,7 @@ button:hover {
   background: #444;
 }
 
+/* Shop Grid */
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -58,23 +56,7 @@ button:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.shop-item img {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
-.rarity {
-  font-size: 0.9rem;
-  margin-top: 4px;
-  color: #888;
-}
-
-.price {
-  font-weight: bold;
-  color: #222;
-  margin-top: 8px;
-}
-
+/* Stat Popup */
 .stat-popup {
   position: fixed;
   bottom: 2rem;
@@ -95,41 +77,7 @@ button:hover {
   pointer-events: none;
 }
 
-.close-btn {
-  float: right;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #888;
-}
-
-.close-btn:hover {
-  color: #000;
-}
-
-.stat-popup h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.stat-popup ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
-}
-
-.stat-popup li {
-  padding: 4px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 0.95rem;
-}
-
-.error {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
-
+/* Fallback Viewer */
 .fallback-container {
   background: #fff;
   border: 1px solid #ccc;
@@ -137,23 +85,33 @@ button:hover {
   border-radius: 8px;
   margin-top: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: max-height 0.3s ease;
+}
+
+.fallback-container.collapsed {
+  max-height: 60px;
+  overflow: hidden;
 }
 
 .fallback-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
 }
 
-.fallback-label {
+.fallback-link {
+  display: inline-block;
+  background: #0a84ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
   font-weight: bold;
-  color: #444;
 }
 
-#minimize-btn {
-  font-size: 0.85rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+.fallback-link:hover {
+  background: #005ecb;
 }
+
+/* Platform Cards */
+.platform-grid {
+  display [A](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?copilot_analytics_metadata=eyJldmVudEluZm9fbWVzc2FnZUlkIjoicXVtSlZVcHh3TWdBck56OHpxSktNIiwiZXZlbnRJbmZvX2NsaWNrU291cmNlIjoiY2l0YXRpb25MaW5rIiwiZXZlbnRJbmZvX2NvbnZlcnNhdGlvbklkIjoiWmU2TUdHbkpONEVKeW5VYXhjWXdjIiwiZXZlbnRJbmZvX2NsaWNrRGVzdGluYXRpb24iOiJodHRwczpcL1wvZ2l0aHViLmNvbVwvbHpoLXlpXC9XZWItRm9yay1cL3RyZWVcLzAyNGIzZTU1NTg3YWZkZjlmMDVhNjc3NjEzYTc1ZjI0ZTNkMTgwM2VcLzAzLUNTUyVFOCVCRiU5QiVFOSU5OCVCNiUyRjA0LSVFNSVBNiU4MiVFNCVCRCU5NSVFOCVBRSVBOSVFNCVCOCU4MCVFNCVCOCVBQSVFNSU4NSU4MyVFNyVCNCVBMCVFNiVCMCVCNCVFNSVCOSVCMyVFNSU5RSU4MiVFNyU5QiVCNCVFNSVCMSU4NSVFNCVCOCVBRCVFRiVCQyU5Ri5tZCJ9&citationMarker=9F742443-6C92-4C44-BF58-8F5A7C53B6F1)

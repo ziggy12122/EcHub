@@ -14,12 +14,14 @@
     <h2>Featured Item Shop</h2>
     <button id="shop-toggle" onclick="toggleShopSource()">📦 View Fallback Shop</button>
     <div id="item-shop" class="shop-grid">Loading shop...</div>
+
     <div id="fallback-card" class="fallback-container hidden">
       <div class="fallback-header">
         <p class="fallback-label">📦 Fallback Shop Viewer</p>
         <button onclick="toggleFallbackView()" id="minimize-btn">➖ Minimize</button>
       </div>
-      <iframe id="fallback-frame" src="https://fnbr.co/shop" width="100%" height="600" style="border:none; border-radius:8px;"></iframe>
+      <p>Live shop data is unavailable. You can view the current shop directly:</p>
+      <a href="https://fnbr.co/shop" target="_blank" class="fallback-link">🔗 Open fnbr.co Shop</a>
     </div>
   </section>
 
@@ -39,6 +41,79 @@
     <span class="close-btn" onclick="closePopup()">❌</span>
     <div id="popup-content"></div>
   </div>
+
+  <section id="platform-cards">
+    <h2>Supported Platforms & Optimization Tweaks</h2>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <h3>🎮 PlayStation 4</h3>
+        <ul>
+          <li>Enable Boost Mode (PS4 Pro)</li>
+          <li>Upgrade to SSD</li>
+          <li>Rebuild Database</li>
+          <li>Clean Internal Dust</li>
+          <li>Disable Background Apps</li>
+          <li>Free Up Disk Space</li>
+          <li>Optimize Network Settings</li>
+          <li>Update System Firmware</li>
+          <li>Use Wired Ethernet</li>
+          <li>Adjust Game Settings</li>
+        </ul>
+        <button onclick="openTutorial('ps4')">📘 View Tutorials</button>
+      </div>
+
+      <div class="platform-card">
+        <h3>🧠 PlayStation 5</h3>
+        <ul>
+          <li>Enable Performance Mode</li>
+          <li>Clear Cache & Rebuild Database</li>
+          <li>Use Internal SSD for PS4 Games</li>
+          <li>Enable VRR & 120Hz</li>
+          <li>Optimize Display & HDR</li>
+          <li>Adjust Controller Feedback</li>
+          <li>Use Rest Mode Smartly</li>
+          <li>Update System & Game Patches</li>
+          <li>Disable Background Apps</li>
+          <li>Use Wired Connection</li>
+        </ul>
+        <button onclick="openTutorial('ps5')">📘 View Tutorials</button>
+      </div>
+
+      <div class="platform-card">
+        <h3>🕹️ Xbox Series X/S</h3>
+        <ul>
+          <li>Enable FPS Boost</li>
+          <li>Use Auto HDR</li>
+          <li>Switch to Performance Mode</li>
+          <li>Use Ethernet over Wi-Fi</li>
+          <li>Enable VRR & 120Hz</li>
+          <li>Clean Console Vents</li>
+          <li>Disable "Allow 4K" for 1440p</li>
+          <li>Use Internal Storage for Fast Loads</li>
+          <li>Restart Console Weekly</li>
+          <li>Update System & Game Settings</li>
+        </ul>
+        <button onclick="openTutorial('xbox')">📘 View Tutorials</button>
+      </div>
+
+      <div class="platform-card">
+        <h3>🧪 PC</h3>
+        <ul>
+          <li>Enable High Performance Power Plan</li>
+          <li>Disable Startup Apps</li>
+          <li>Clean Registry & Temp Files</li>
+          <li>Update GPU Drivers</li>
+          <li>Enable Game Mode (Windows)</li>
+          <li>Use SSD for Game Installs</li>
+          <li>Optimize In-Game Settings</li>
+          <li>Disable Background Services</li>
+          <li>Overclock Safely</li>
+          <li>Use Wired Internet</li>
+        </ul>
+        <button onclick="openTutorial('pc')">📘 View Tutorials</button>
+      </div>
+    </div>
+  </section>
 
   <script src="./scripts/shop.js"></script>
   <script src="./scripts/stats.js"></script>

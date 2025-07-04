@@ -15,13 +15,12 @@ function loadShop() {
 
   fetch("https://fortnite-api.com/v2/shop")
     .then(res => {
-      if (!res.ok) throw new Error("Shop API failed");
+      if (!res.ok) throw new Error("API response not OK");
       return res.json();
     })
     .then(data => {
       const items = data.data?.featured?.entries || [];
-
-      if (!items.length) throw new Error("No featured items available");
+      if (!items.length) throw new Error("Empty shop data");
 
       shopGrid.innerHTML = "";
       items.forEach(entry => {
@@ -42,21 +41,23 @@ function loadShop() {
     .catch(err => {
       console.warn("Live shop failed:", err.message);
       useFallback = true;
-      loadShop();
+      loadShop(); // Retry in fallback mode
     });
 }
 
 function toggleShopSource() {
   useFallback = !useFallback;
   loadShop();
-  const toggleBtn = document.getElementById("shop-toggle");
-  toggleBtn.innerText = useFallback ? "💾 View Live API Shop" : "📦 View Fallback Shop";
+  document.getElementById("shop-toggle").innerText =
+    useFallback ? "💾 View Live API Shop" : "📦 View Fallback Shop";
 }
 
 function toggleFallbackView() {
-  const iframe = document.getElementById("fallback-frame");
-  const btn = document.getElementById("minimize-btn");
+  const fallbackCard = document.getElementById("fallback-card");
+  const minimizeBtn = document.getElementById("minimize-btn");
 
-  if (iframe.style.display === "none") {
-    iframe.style.display = "block";
-    btn.innerText
+  fallbackCard.classList.toggle("collapsed");
+  minimizeBtn.innerText = fallbackCard.classList.contains("collapsed")
+    ? "➕ Expand"
+    : "➖ Minimize";
+}

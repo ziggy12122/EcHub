@@ -10,18 +10,17 @@ function fetchStats() {
     return;
   }
 
-  console.log(`Stat search initiated: ${username} on ${platform}`);
+  console.log(`Stat search: ${username} on ${platform}`);
 
   fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${username}&platform=${platform}`)
     .then(res => {
-      if (!res.ok) throw new Error("Network response was not ok");
+      if (!res.ok) throw new Error("Network error");
       return res.json();
     })
     .then(data => {
       const stats = data.data?.stats?.all?.overall;
       const name = data.data?.account?.name;
-
-      if (!stats || !name) throw new Error("Stats not found or malformed data");
+      if (!stats || !name) throw new Error("Stats not found");
 
       content.innerHTML = `
         <h3>Stats for ${name}</h3>
@@ -37,9 +36,8 @@ function fetchStats() {
       popup.classList.remove("hidden");
     })
     .catch(err => {
-      content.innerHTML = `<p class="error">❌ Failed to load stats. ${err.message}</p>`;
+      content.innerHTML = `<p class="error">❌ Failed to load stats: ${err.message}</p>`;
       popup.classList.remove("hidden");
-      console.error("Stats Fetch Error:", err);
     });
 }
 
@@ -50,8 +48,6 @@ function clearStats() {
 }
 
 function closePopup() {
-  const popup = document.getElementById("popup-card");
-  const content = document.getElementById("popup-content");
-  popup.classList.add("hidden");
-  content.innerHTML = "";
+  document.getElementById("popup-card").classList.add("hidden");
+  document.getElementById("popup-content").innerHTML = "";
 }

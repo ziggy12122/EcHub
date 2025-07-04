@@ -4,14 +4,14 @@ function fetchStats() {
   const popup = document.getElementById("popup-card");
   const content = document.getElementById("popup-content");
 
-  // Validate input
   if (!username) {
     content.innerHTML = `<p class="error">Please enter a valid Epic username.</p>`;
     popup.classList.remove("hidden");
     return;
   }
 
-  // Fetch from API
+  console.log(`Stat search initiated: ${username} on ${platform}`);
+
   fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${username}&platform=${platform}`)
     .then(res => {
       if (!res.ok) throw new Error("Network response was not ok");
@@ -43,17 +43,15 @@ function fetchStats() {
     });
 }
 
-// Close popup
+function clearStats() {
+  document.getElementById("username").value = "";
+  document.getElementById("platform").value = "pc";
+  closePopup();
+}
+
 function closePopup() {
   const popup = document.getElementById("popup-card");
   const content = document.getElementById("popup-content");
   popup.classList.add("hidden");
   content.innerHTML = "";
-}
-
-// Reset form
-function clearStats() {
-  document.getElementById("username").value = "";
-  document.getElementById("platform").value = "pc";
-  closePopup();
 }

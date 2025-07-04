@@ -1,4 +1,3 @@
-/* Core Styles */
 body {
   margin: 0;
   background-color: #f4f4f4;
@@ -10,17 +9,15 @@ header {
   text-align: center;
   font-size: 2rem;
   padding: 1.5rem 0;
-  color: #333;
 }
 
 section {
   max-width: 960px;
   margin: auto;
   padding: 2rem 1rem;
-  border-bottom: 1px solid #ddd;
 }
 
-/* Buttons */
+/* Buttons & Inputs */
 button {
   background: #222;
   color: #fff;
@@ -29,62 +26,25 @@ button {
   padding: 0.5rem 1rem;
   margin: 0.5rem 0.25rem;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 button:hover {
   background: #444;
 }
 
-/* Shop Grid */
+/* Shop & Fallback */
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
 }
 
-.shop-item {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  transition: box-shadow 0.2s ease;
-}
-
-.shop-item:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Stat Popup */
-.stat-popup {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width: 320px;
-  z-index: 100;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.stat-popup.hidden {
-  transform: translateY(40px);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Fallback Viewer */
 .fallback-container {
   background: #fff;
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
   margin-top: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .fallback-container.collapsed {
@@ -105,13 +65,77 @@ button:hover {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
-}
-
-.fallback-link:hover {
-  background: #005ecb;
 }
 
 /* Platform Cards */
 .platform-grid {
-  display [A](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?copilot_analytics_metadata=eyJldmVudEluZm9fbWVzc2FnZUlkIjoicXVtSlZVcHh3TWdBck56OHpxSktNIiwiZXZlbnRJbmZvX2NsaWNrU291cmNlIjoiY2l0YXRpb25MaW5rIiwiZXZlbnRJbmZvX2NvbnZlcnNhdGlvbklkIjoiWmU2TUdHbkpONEVKeW5VYXhjWXdjIiwiZXZlbnRJbmZvX2NsaWNrRGVzdGluYXRpb24iOiJodHRwczpcL1wvZ2l0aHViLmNvbVwvbHpoLXlpXC9XZWItRm9yay1cL3RyZWVcLzAyNGIzZTU1NTg3YWZkZjlmMDVhNjc3NjEzYTc1ZjI0ZTNkMTgwM2VcLzAzLUNTUyVFOCVCRiU5QiVFOSU5OCVCNiUyRjA0LSVFNSVBNiU4MiVFNCVCRCU5NSVFOCVBRSVBOSVFNCVCOCU4MCVFNCVCOCVBQSVFNSU4NSU4MyVFNyVCNCVBMCVFNiVCMCVCNCVFNSVCOSVCMyVFNSU5RSU4MiVFNyU5QiVCNCVFNSVCMSU4NSVFNCVCOCVBRCVFRiVCQyU5Ri5tZCJ9&citationMarker=9F742443-6C92-4C44-BF58-8F5A7C53B6F1)
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.platform-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.platform-card h3 {
+  font-size: 1.2rem;
+}
+
+.tweak-list {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.tweak-list li {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Stat Popup */
+.stat-popup {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  max-width: 320px;
+}
+
+.stat-popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(40px);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    font-size: 1.5rem;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-popup {
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 90%;
+  }
+}

@@ -2,15 +2,16 @@ let useFallback = false;
 
 function loadShop() {
   const shopGrid = document.getElementById("item-shop");
-  shopGrid.innerHTML = "<p>🔄 Fetching item shop...</p>";
+  const fallbackCard = document.getElementById("fallback-card");
 
   if (useFallback) {
-    shopGrid.innerHTML = `
-      <p class="error">📦 Showing fallback shop from fnbr.co</p>
-      <iframe src="https://fnbr.co/shop" width="100%" height="600" style="border:none; border-radius:8px;"></iframe>
-    `;
+    shopGrid.innerHTML = "";
+    fallbackCard.classList.remove("hidden");
     return;
   }
+
+  fallbackCard.classList.add("hidden");
+  shopGrid.innerHTML = "<p>🔄 Fetching item shop...</p>";
 
   fetch("https://fortnite-api.com/v2/shop")
     .then(res => {
@@ -41,7 +42,7 @@ function loadShop() {
     .catch(err => {
       console.warn("Live shop failed:", err.message);
       useFallback = true;
-      loadShop(); // Retry with fallback
+      loadShop();
     });
 }
 
@@ -52,4 +53,10 @@ function toggleShopSource() {
   toggleBtn.innerText = useFallback ? "💾 View Live API Shop" : "📦 View Fallback Shop";
 }
 
-loadShop();
+function toggleFallbackView() {
+  const iframe = document.getElementById("fallback-frame");
+  const btn = document.getElementById("minimize-btn");
+
+  if (iframe.style.display === "none") {
+    iframe.style.display = "block";
+    btn.innerText
